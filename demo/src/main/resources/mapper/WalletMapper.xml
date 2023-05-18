@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.WalletMapper">
+
+    <!--消费业务-->
+    <update id="consumption">
+        update wallet
+        set balance = balance - #{balance,jdbcType=DECIMAL}
+        where uid = #{uid,jdbcType=NUMERIC}
+          AND wid = #{wid,jdbcType=NUMERIC}
+    </update>
+
+    <!--退款业务-->
+    <update id="refund">
+        update wallet
+        set balance = balance + #{balance,jdbcType=DECIMAL}
+        where uid = #{uid,jdbcType=NUMERIC}
+          AND wid = #{wid,jdbcType=NUMERIC}
+    </update>
+</mapper>

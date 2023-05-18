@@ -1,0 +1,31 @@
+
+
+spring:
+  main:
+    allow-circular-references: true
+  #  配置数据源信息
+  datasource:
+    #    配置连接数据原类型
+    type: com.zaxxer.hikari.HikariDataSource
+    #    配置连接数据库的各个信息
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mianshi?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: a1978341673
+
+mybatis-plus:
+  #配置类型别名所对应的包
+  type-aliases-package: com.example.entity
+  #设置MyBatis-Plus的全局配置
+  global-config:
+    db-config:
+      #  表中主键的自动增长的类型
+      id-type: auto
+  configuration:
+    #开启日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #    开启驼峰
+    map-underscore-to-camel-case: true
+
+server:
+  port: 80
